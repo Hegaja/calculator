@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hegaja Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Simple Calculator</h1>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div class="calculatorMain">
+            <div class="calculatorHeader" id="calculatorHeader" >Classic Calculator</div>
+            <div id="calculatorDisplay" class="calculatorDisplay">0</div>
+            <div class="calculatorBody">
+                <table>
+                    <tr>
+                        <th> <button type="button" onclick="pickValue(7)">7</button> </th>
+                        <th> <button type="button" onclick="pickValue(8)">8</button> </th>
+                        <th> <button type="button" onclick="pickValue(9)">9</button> </th>
+                        <th> <button type="button" onclick="pickValue('div')">/</button> </th>
+                        <th> <button type="button"onclick="clearAll()">C</button> </th>
+                    </tr>
+                    <tr>
+                        <th> <button type="button" onclick="pickValue(4)">4</button> </th>
+                        <th> <button type="button" onclick="pickValue(5)">5</button> </th>
+                        <th> <button type="button" onclick="pickValue(6)">6</button> </th>
+                        <th> <button type="button" onclick="pickValue('multi')">*</button> </th>
+                        <th> <button type="button" onclick="pickValue('pw')">pw</button> </th>
+                    </tr>
+                    <tr>
+                        <th> <button type="button" onclick="pickValue(1)">1</button> </th>
+                        <th> <button type="button" onclick="pickValue(2)">2</button> </th>
+                        <th> <button type="button" onclick="pickValue(3)">3</button> </th>
+                        <th> <button type="button" onclick="pickValue('sub')">-</button> </th>
+                        <th> <button type="button" onclick="pickValue('rt')">rt</button> </th>
+                    </tr>
+                    <tr>
+                        <th> <button type="button" onclick="pickValue(0)">0</button> </th>
+                        <th> <button type="button" onclick="pickValue('.')">.</button> </th>
+                        <th> <button type="button">%</button> </th>
+                        <th> <button type="button" onclick="pickValue('sum')">+</button> </th>
+                        <th> <button type="button" onclick= "operate()">=</button> </th>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-3 right"></div>
+
+
+
+    <div id="footer"> Created by:
+        <a href="http://www.hegaja.com">Hegaja</a>
+    </div>
+
+</body>
+
+</html>
