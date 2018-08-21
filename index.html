@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
 </head>
 
 <body>
@@ -27,28 +27,28 @@
                         <th> <button type="button" onclick="pickValue(7)">7</button> </th>
                         <th> <button type="button" onclick="pickValue(8)">8</button> </th>
                         <th> <button type="button" onclick="pickValue(9)">9</button> </th>
-                        <th> <button type="button" onclick="pickValue('div')">/</button> </th>
+                        <th> <button type="button" onclick="pickOperator('div')">&#247;</button> </th>
                         <th> <button type="button"onclick="clearAll()">C</button> </th>
                     </tr>
                     <tr>
                         <th> <button type="button" onclick="pickValue(4)">4</button> </th>
                         <th> <button type="button" onclick="pickValue(5)">5</button> </th>
                         <th> <button type="button" onclick="pickValue(6)">6</button> </th>
-                        <th> <button type="button" onclick="pickValue('multi')">*</button> </th>
-                        <th> <button type="button" onclick="pickValue('pw')">^</button> </th>
+                        <th> <button type="button" onclick="pickOperator('multi')">*</button> </th>
+                        <th> <button type="button" onclick="pickOperator('pw')">x&#178;</button> </th>
                     </tr>
                     <tr>
                         <th> <button type="button" onclick="pickValue(1)">1</button> </th>
                         <th> <button type="button" onclick="pickValue(2)">2</button> </th>
                         <th> <button type="button" onclick="pickValue(3)">3</button> </th>
-                        <th> <button type="button" onclick="pickValue('sub')">-</button> </th>
-                        <th> <button type="button" onclick="pickValue('rt')">rt</button> </th>
+                        <th> <button type="button" onclick="pickOperator('sub')">-</button> </th>
+                        <th> <button type="button" onclick="pickOperator('rt')">&#8730;x</button> </th>
                     </tr>
                     <tr>
                         <th> <button type="button" onclick="pickValue(0)">0</button> </th>
                         <th> <button type="button" onclick="pickValue('.')">.</button> </th>
                         <th> <button type="button">%</button> </th>
-                        <th> <button type="button" onclick="pickValue('sum')">+</button> </th>
+                        <th> <button type="button" onclick="pickOperator('sum')">+</button> </th>
                         <th> <button type="button" onclick= "operate()">=</button> </th>
                     </tr>
                 </table>

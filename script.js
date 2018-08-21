@@ -115,10 +115,10 @@ function operate() {
   //let result = (numberC, numberB) => operationChoose();
 
   // document.getElementById("calculatorDisplay").innerHTML = result;
-
+  document.getElementById("calculatorHeader").innerHTML = "Classic Calculator";
   switch (operationChoose) {
     case "sum":
-      showHistory();
+      //showHistory();
       numberC = sum(numberC, numberB);
       document.getElementById("calculatorDisplay").innerHTML = numberC;
       break;
