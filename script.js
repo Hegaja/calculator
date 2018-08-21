@@ -51,7 +51,7 @@ function pickValue(val) {
         operatorDisplay = " " + String.fromCodePoint(174) + " ";
         break;
       case "pw":
-        operatorDisplay = " ^ ";
+        operatorDisplay = " ^2 ";
         break;
     }
     history = history + " " + numberB + operatorDisplay;
@@ -60,8 +60,19 @@ function pickValue(val) {
     numberC = numberB;
     dotControl = 0;
 
-    numberB = 0;
+    //numberB = 0;
     numberA = [];
+
+    if (val == "pw") {
+      numberB = pw(numberC);
+      document.getElementById("calculatorDisplay").innerHTML = numberB;
+      return;
+    }
+    if (val == "rt") {
+      numberB = rt(numberC);
+      document.getElementById("calculatorDisplay").innerHTML = numberB;
+      return;
+    }
 
     operationChoose = val;
     document.getElementById("calculatorDisplay").innerHTML = numberB;
@@ -108,38 +119,31 @@ function operate() {
   switch (operationChoose) {
     case "sum":
       showHistory();
-      document.getElementById("calculatorDisplay").innerHTML = sum(
-        numberC,
-        numberB
-      );
+      numberC = sum(numberC, numberB);
+      document.getElementById("calculatorDisplay").innerHTML = numberC;
       break;
     case "sub":
       showHistory();
-      document.getElementById("calculatorDisplay").innerHTML = sub(
-        numberC,
-        numberB
-      );
+      numberB = sub(numberC, numberB);
+      document.getElementById("calculatorDisplay").innerHTML = numberB;
       break;
     case "multi":
       showHistory();
-      document.getElementById("calculatorDisplay").innerHTML = multi(
-        numberC,
-        numberB
-      );
+      numberB = multi(numberC, numberB);
+      document.getElementById("calculatorDisplay").innerHTML = numberB;
       break;
     case "div":
       showHistory();
-      document.getElementById("calculatorDisplay").innerHTML = div(
-        numberC,
-        numberB
-      );
+      numberB = div(numberC, numberB);
+      document.getElementById("calculatorDisplay").innerHTML = numberB;
       break;
-    case "pw":
-      document.getElementById("calculatorDisplay").innerHTML = pw(numberC);
-      break;
-    case "rt":
-      document.getElementById("calculatorDisplay").innerHTML = rt(numberC);
-      break;
+    //It was implemented in inputValue function
+    // case "pw":
+    //   document.getElementById("calculatorDisplay").innerHTML = pw(numberC);
+    //   break;
+    // case "rt":
+    //   document.getElementById("calculatorDisplay").innerHTML = rt(numberC);
+    //   break;
   }
   return;
 }
