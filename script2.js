@@ -1,6 +1,6 @@
 let dotControl = 0;
 let numberA = [];
-let numberB = 0;
+let numberB = null;
 let numberC = 0;
 let operator = "";
 let history = "Classic Calculator";
@@ -12,45 +12,57 @@ function pickOperator(operator) {
   //trowing the operator to a global scope
   operationChoose = operator;
   if (history == "Classic Calculator") history = [];
+  if (numberB == null) return;
   switch (operator) {
     case "sum":
       history = history + numberB + " + ";
       document.getElementById("calculatorHeader").innerHTML = history;
-      numberC = numberC +numberB;
-      document.getElementById("calculatorDisplay").innerHTML = numberC;
+      numberC = numberC + numberB; //PORQUE ISSO TEM AQUI E NÃO NO RESTO? PQ DIABOS PRESTAAAAA?
+      document.getElementById("calculatorDisplay").innerHTML = 0;
       break;
     case "sub":
       history = history + numberB + " - ";
       document.getElementById("calculatorHeader").innerHTML = history;
+      numberC = numberC - numberB;
       document.getElementById("calculatorDisplay").innerHTML = 0;
       break;
     case "multi":
-      history = history + numberB + " * ";
+      if (numberB != null) {
+        numberC = numberB;
+      } else {
+        numberB = 1;
+      }
+      history = history + numberC + " * ";
+
       document.getElementById("calculatorHeader").innerHTML = history;
+      numberC = numberC * numberB;
       document.getElementById("calculatorDisplay").innerHTML = 0;
       break;
     case "div":
+      if (numberB != null) numberC = numberB;
       history = history + numberB + " / ";
       document.getElementById("calculatorHeader").innerHTML = history;
       document.getElementById("calculatorDisplay").innerHTML = 0;
       break;
     case "rt":
+      if (numberB != null) numberC = numberB;
       document.getElementById("calculatorHeader").innerHTML =
-        " " + String.fromCharCode(8730) + numberB;
-      numberB = Math.sqrt(numberB);
-      numberC = numberB;
-      document.getElementById("calculatorDisplay").innerHTML = numberB;
+        " " + String.fromCharCode(8730) + numberC;
+      numberC = Math.sqrt(numberC);
+
+      document.getElementById("calculatorDisplay").innerHTML = numberC;
       break;
     case "pw":
+      if (numberB != null) numberC = numberB;
       document.getElementById("calculatorHeader").innerHTML =
-        numberB + " " + String.fromCharCode(178) + " ";
-      numberB = numberB * numberB;
-      numberC = numberB;
-      document.getElementById("calculatorDisplay").innerHTML = numberB;
+        numberC + " " + String.fromCharCode(178) + " ";
+      numberC = numberC * numberC;
+      //numberC = numberB;
+      document.getElementById("calculatorDisplay").innerHTML = numberC;
       break;
   }
   //numberC = numberB;
-  //numberB = 0;
+  // numberB = 0;
   numberA = [];
   // Code to show pw/rt without the equal button
   //   if (val == "pw") {
@@ -66,8 +78,9 @@ function pickOperator(operator) {
 }
 
 function pickValue(val) {
-  //if (isNaN(val) && val != ".") {
-  //Clear the upper display to create a small history of operations
+  numberC;
+  //if (isNaN(val) && valnumberC
+  //Clear the upper displnumberC
   // if (history == "Classic Calculator") history = [];
 
   // history = history + " " + numberB + operatorDisplay;
@@ -95,18 +108,6 @@ function pickValue(val) {
   document.getElementById("calculatorDisplay").innerHTML = numberB;
 }
 
-// function secondValue() {
-//   numberB = numberA.join("");
-//   numberB = parseFloat(numberB);
-// }
-
-// function testGlobal() {
-//   numberB = numberA.join("");
-//   numberB = parseFloat(numberB);
-//   console.log(numberB);
-//   document.getElementById("calculatorDisplay").innerHTML = numberB;
-// }
-
 function clearAll() {
   dotControl = 0;
   numberB = 0;
@@ -128,25 +129,25 @@ function operate() {
       showHistory();
       numberC = numberC + numberB;
       document.getElementById("calculatorDisplay").innerHTML = numberC;
-      history =  numberC;// + " + ";
+      history = numberC; // + " + ";
       break;
     case "sub":
       showHistory();
       numberC = numberC - numberB;
       document.getElementById("calculatorDisplay").innerHTML = numberC;
-      history =  numberC + " - ";
+      history = numberC; // + " - ";
       break;
     case "multi":
       showHistory();
-      numberC = numberC * numberB;
+      //numberC = numberC * numberB;
       document.getElementById("calculatorDisplay").innerHTML = numberC;
-      history =  numberC + " * ";
+      history = numberC; // + " * ";
       break;
     case "div":
       showHistory();
       numberC = numberC / numberB;
       document.getElementById("calculatorDisplay").innerHTML = numberC;
-      history =  numberC + " / ";
+      history = numberC; // + " / ";
       break;
     //It was implemented in inputValue function
     // case "pw":
@@ -156,7 +157,9 @@ function operate() {
     //   document.getElementById("calculatorDisplay").innerHTML = rt(numberC);
     //   break;
   }
+  numberB = null; //Testando com valores null para não trollar funções de multi/div
   numberA = [];
+  operationChoose = "";
   return;
 }
 
